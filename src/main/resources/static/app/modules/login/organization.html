@@ -1,0 +1,35 @@
+<header></header>
+<div class="login-page">
+    <div class="container-fluid">
+        <div class="row login">
+            <div class="col-md-6 left-col">
+                <img src="static/assets/images/leftcol_bg.png" alt="" class="img-responsive" />
+            </div>
+            <div class="col-md-6 right-col">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <div class="io_kisi">
+                            <h3 class=""><i>Sign in to your <span class="text-success">Organization</span></i></h3>
+                            <div class="alert alert-danger small" *ngIf="response!=''">{{response}}</div>
+                            <div style="font-size: 16px;" class="text-right form-group"><i>Enter you organization's kisai URL</i></div>
+                            <form [formGroup]="OrgLoginForm" novalidate (ngSubmit)="onSubmit(OrgLoginForm.value)">
+                                <div class="group form-group">
+                                    <input type="text" class="form-control" formControlName="orgName" />
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>your - organization - name</label>
+                                    <span class="kisai_io"><b>.kisai.io</b></span>
+                                </div>
+                                <button class="btn btn-primary btn-block btn-md text-uppercase" type="submit" [disabled]="!OrgLoginForm.valid">Continue</button>
+                                <div>&nbsp;</div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<footer></footer>

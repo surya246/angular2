@@ -1,0 +1,132 @@
+<!--<angular2-fullcalendar [options]="calendarOptions"></angular2-fullcalendar>
+
+<div class="clearfix"></div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="dd">
+            <ol class="dd-list">
+                <li class="dd-item" data-id="1">
+                    <div class="dd-handle">Item 1</div>
+                </li>
+                <li class="dd-item" data-id="2">
+                    <div class="dd-handle">Item 2</div>
+                </li>
+                <li class="dd-item" data-id="3">
+                    <div class="dd-handle">Item 3</div>
+                    <ol class="dd-list">
+                        <li class="dd-item" data-id="4">
+                            <div class="dd-handle">Item 4</div>
+                        </li>
+                        <li class="dd-item" data-id="5">
+                            <div class="dd-handle">Item 5</div>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <button type="button" id="enable" (click)="enableDrag()">Enable</button>
+        <button type="button" id="disable" (click)="disableDrag()">Disable</button>
+        <div class="row" id="swappercontainer">
+            <div id="a" class="swapperbox">A</div>
+            <div id="b" class="swapperbox swapperbox--large">B</div>
+            <div id="c" class="swapperbox">C</div>
+        </div>
+
+        <div class="row" id="swappercontainer2">
+            <div id="d" class="swapperbox swapperbox--second">D</div>
+            <div id="e" class="swapperbox swapperbox--large swapperbox--second">E</div>
+            <div id="f" class="swapperbox swapperbox--second">F</div>
+        </div>
+    </div>
+</div>-->
+
+
+
+<!--<section>
+    <h2>Sortable List</h2>
+    <ul class="sortable list">
+        <li id="item1">Item 1</li>
+        <li id="item2">Item 2</li>
+        <li id="item3">Item 3</li>
+        <li id="item4">Item 4</li>
+        <li id="item5">Item 5</li>
+        <li id="item6">Item 6</li>
+    </ul>
+</section>-->
+
+<!--<div class="login">
+    <div class="user-login-5">
+        <div class="row bs-reset">
+            <div class="col-md-6 bs-reset mt-login-5-bsfix">
+                <div class="login-bg" style="background-image:url('static/assets/images/signup/bg1.jpg')">
+                    <img class="login-logo" src="static/assets/images/signup/logo.png" />
+                </div>
+            </div>
+            <div class="col-md-6 login-container bs-reset mt-login-5-bsfix">
+                <div class="login-content">
+                    <h1>Create new organization</h1>
+                    <form action="javascript:;" class="login-form" method="post">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <p>Your <b>email address</b></p>
+                                <input class="form-control form-control-solid placeholder-no-fix form-group" type="text" autocomplete="off" placeholder="Organization name"
+                                    name="username" required/>
+                            </div><br>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <input type="checkbox" /> It's ok to send me email about the kisai services
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+
+<h1 class="page-title"> Calendar
+    <small>calendar page</small>
+</h1>
+<!-- END PAGE TITLE-->
+<!-- END PAGE HEADER-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light portlet-fit bordered calendar">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class=" icon-layers font-green"></i>
+                    <span class="caption-subject font-green sbold uppercase">Calendar</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12">
+                        <!-- BEGIN DRAGGABLE EVENTS PORTLET-->
+                        <h3 class="event-form-title margin-bottom-20">Draggable Events</h3>
+                        <div id="external-events">
+                            <form class="inline-form">
+                                <input type="text" value="" class="form-control" placeholder="Event Title..." id="event_title" />
+                                <br/>
+                                <a href="javascript:;" id="event_add" class="btn green"> Add Event </a>
+                            </form>
+                            <hr/>
+                            <div id="event_box" class="margin-bottom-10"></div>
+                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline" for="drop-remove"> remove after drop
+                                                        <input type="checkbox" class="group-checkable" id="drop-remove" />
+                                                        <span></span>
+                                                    </label>
+                            <hr class="visible-xs" /> </div>
+                        <!-- END DRAGGABLE EVENTS PORTLET-->
+                    </div>
+                    <div class="col-md-9 col-sm-12">
+                        <div id="calendar" class="has-toolbar"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

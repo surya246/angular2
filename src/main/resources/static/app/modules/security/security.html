@@ -1,0 +1,97 @@
+<header></header>
+<div class="login-page">
+    <div class="container-fluid">
+        <div class="row login">
+            <div class="col-sm-6 left-col">
+                <img src="static/assets/images/leftcol_bg.png" alt="" class="img-responsive" />
+            </div>
+            <div class="col-sm-6 right-col" [ngStyle]="{'display':SHOW_LOGIN?'block':'none'}">
+                <div class="row">
+                    <div class="col-sm-8 padlr25">
+                        <h3 class=""><i>Sign in to <span class="text-success">Ideanz</span></i></h3>
+                        <div style="font-size: 16px;" class="text-right text-success"><i>{{ organization_name}}.kisai.io</i></div>
+                        <div class="alert alert-danger small" *ngIf="response!=''">{{response}}</div>
+                        <form [formGroup]="SecurityForm" novalidate (ngSubmit)="onSubmit(SecurityForm.value)">
+                            <div class="group form-group">
+                                <input class="form-control" type="text" [formControl]="SecurityForm.controls['userName']" [(ngModel)]="user_mobile_auth"
+                                    (blur)="checkMobileAuth()" />
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Username</label>
+                                <div *ngIf="SecurityForm.controls['userName'].hasError('required') && SecurityForm.controls['userName'].touched" class="text-danger errmsg">Please enter username.</div>
+                                <div *ngIf="SecurityForm.controls['userName'].hasError('pattern') && SecurityForm.controls['userName'].touched" class="text-danger errmsg">Please enter a valid username.</div>
+                            </div>
+
+                            <div class="group form-group">
+                                <input class="form-control" type="password" [formControl]="SecurityForm.controls['password']" />
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Password</label>
+                                <div *ngIf="SecurityForm.controls['password'].hasError('required') && SecurityForm.controls['password'].touched" class="text-danger errmsg">Please enter a password.</div>
+                                <div *ngIf="SecurityForm.controls['password'].hasError('minlength')" class="text-danger errmsg">Password must have minimum 6 characters.</div>
+                                <div *ngIf="SecurityForm.controls['password'].hasError('maxlength')" class="text-danger errmsg">Password shouldnot exceed 15 characters.</div>
+                            </div>
+                            <button class="btn btn-primary btn-block btn-md" type="submit" [disabled]="!SecurityForm.valid">Sign in</button>
+                            <div>&nbsp;</div>
+                            <div class="row" style="font-size: 13px;">
+                                <div class="col-xs-6">
+                                    <input type="checkbox" name="remember me" [formControl]="SecurityForm.controls['remember_me']" [(ngModel)]="remember_me"
+                                    /> &nbsp;
+                                    <span class="" style="position: relative; top: -5px;"> Remember me</span>
+                                </div>
+                                <div class="col-xs-6 text-right padl0" style="margin-top: 4px">
+                                    <div class="text-right">
+                                        <a class="btn-link forgot" (click)="forgotPwd()">Forgot Password?</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-sm-4 hidden-xs">
+                        <div class="thumbnail mobile">
+                            <button class="btn-none" [disabled]='!mobileAuth' (click)="mobileAuthentication()">
+                                <img [src]="mobileAuth ? 'static/assets/images/mobile.gif' : 'static/assets/images/mobile.png'"
+                                class="img-responsive marg0" />
+                            </button>
+                            <p [style.display]="mobileAuth ? 'none' : block"><i>Please enter username for mobile authentication</i></p>
+                            <p [style.display]="mobileAuth ? 'block' : 'none'"><i>Mobile Authentication available</i></p>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="or">Or</div>
+                <div class="scanner text-center">
+                    <div *ngIf="message != ''"><img src="static/assets/images/loader.gif"></div>
+                    <qr-code *ngIf="message == ''" [value]="value" [level]="level" [size]="120" class="marg0 img-responsive"></qr-code>
+                    for password-less login
+                </div>
+            </div>
+            <!-- Fprgot Password HTML -->
+            <div class="col-sm-6 right-col" [ngStyle]="{'display':SHOW_FORGOT?'block':'none'}">
+                <div class="margin_t_110 row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <h3 class="marg_t_0"><i>Sign in to Ideanz</i></h3>
+                        <h4 class="font_16 text-right"><i>{{this.team}}.kisai.io</i></h4>
+                        <div class="alert alert-danger small" *ngIf="response!=''">{{response}}</div>
+                        <form [formGroup]="ForgotForm" novalidate (ngSubmit)="onForgotSubmit(ForgotForm.value)">
+                            <div class="forgot group form-group">
+                                <input class="form-control" type="text" [formControl]="ForgotForm.controls['userName']" />
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Username</label>
+                                <div *ngIf="ForgotForm.controls['userName'].hasError('required') && ForgotForm.controls['userName'].touched" class="text-danger errmsg">Please enter username.</div>
+                                <div *ngIf="ForgotForm.controls['userName'].hasError('pattern') && ForgotForm.controls['userName'].touched" class="text-danger errmsg">Please enter a valid username.</div>
+                            </div>
+                            <div class="form-group text-right">
+                                <button class="btn btn-primary btn-md" type="submit" [disabled]="!ForgotForm.valid">Submit</button>&nbsp;
+                                <button class="btn btn-default btn-md" (click)="cancelForgotPwd()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<footer></footer>
